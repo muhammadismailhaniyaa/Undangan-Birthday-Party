@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sweet 17th Birthday of Andika</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- KONTAINER UTAMA (MOBILE-FIRST & RESPONSIVE) -->
+    <div class="container">
+
+        <!-- SAMBUTAN / HERO SECTION -->
+        <header class="hero-section">
+            <p class="hero-label">Kepada Yth.</p>
+            <h2 id="nama" style="color: #ffffff;">Tamu Undangan</h2>
+
+            <div class="hero-info">
+                <p id="instansi"></p>
+                <p id="kategori"></p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h1>Welcome to Andika's 17th Birthday</h1>
+            <p class="tagline">I'm excited to celebrate this special day with all of you!</p>
+
+            <a href="#rsvp" class="btn-open">Konfirmasi Kehadiran</a>
+        </header>
+
+        <!-- COUNTDOWN TIMER -->
+        <section class="countdown-section">
+            <h2>Menuju Hari-H</h2>
+            <div class="event-card">
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span id="days">00</span>
+                        <small>Hari</small>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="hours">00</span>
+                        <small>Jam</small>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="minutes">00</span>
+                        <small>Menit</small>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="seconds">00</span>
+                        <small>Detik</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAKTU DAN TEMPAT -->
+        <section class="schedule">
+            <h2>Waktu dan Tempat</h2>
+            <div class="event-card">
+                <p><strong>Tanggal:</strong> 16 Januari 2027</p>
+                <p><strong>Waktu:</strong> 15:00 - 18:00 WIB</p>
+                <p><strong>Tempat:</strong> Rumah Mas Andika</p>
+            </div>
+        </section>
+
+        <!-- PETA LOKASI -->
+        <section class="map">
+            <h2>Peta Lokasi</h2>
+            <p style="margin-bottom: 15px;">Rumah Mas Andika</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.123456789!2d106.827153!3d-6.175110!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5b8c8b8b8b%3A0x123456789abcdef0!2sGedung%20Utama%20Universitas!5e0!3m2!1sid!2sid!4v1612345678901" width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
+        <!-- RUNDOWN ACARA -->
+        <section class="rundown">
+            <h2>Rundown Acara</h2>
+            <ul style="text-align: left; padding-left: 20px; line-height: 1.8;">
+                <li><strong>15:00 - 15:30:</strong> Registrasi & Kedatangan Tamu</li>
+                <li><strong>15:30 - 15:40:</strong> Pembukaan</li>
+                <li><strong>15:40 - 15:55:</strong> Sambutan Pemilik Acara</li>
+                <li><strong>15:55 - 16:30:</strong> Sesi Hiburan & Makan Bersama</li>
+                <li><strong>16:30 - 17:10:</strong> Potong Kue Dan Tiup Lilin</li>
+                <li><strong>17:10 - 17:40:</strong> Games dan Sesi Interaktif</li>
+                <li><strong>17:40 - 17:55:</strong> Sesi Foto Bersama</li>
+                <li><strong>17:55 - 18:00:</strong> Penutupan</li>
+            </ul>
+        </section>
+
+        <!-- AMPLOP DIGITAL / REKENING -->
+        <section class="gift-section" style="padding: 40px 20px; text-align: center;">
+            <h2>Amplop Digital</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">Salurkan hadiah Anda melalui rekening berikut:</p>
+            
+            <div class="event-card" style="background: #1a365d; border: 2px dashed #b3ceff; padding: 20px; border-radius: 15px;">
+                <p><strong>BCA: 1234567890</strong></p>
+                <p style="font-size: 0.9rem; margin: 5px 0;">a.n. Andika</p>
+                <button onclick="salinRekening()" style="margin-top: 10px; padding: 10px 20px; background: #ff4d6d; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: bold;">Salin Nomor Rekening</button>
+            </div>
+        </section>
+
+        <!-- BUKU TAMU & UCAPAN (LOCALSTORAGE) -->
+        <section class="buku-tamu" style="text-align: left;">
+            <h2>Buku Tamu & Ucapan</h2>
+            
+            <form id="formUcapan">
+                <label for="namaPesan">Nama:</label>
+                <input type="text" id="namaPesan" placeholder="Nama kamu" required>
+
+                <label for="isiPesan">Ucapan / Doa:</label>
+                <textarea id="isiPesan" placeholder="Tulis ucapan dan doa..." rows="3" required></textarea>
+
+                <button type="submit">Kirim Ucapan</button>
+            </form>
+
+            <div id="daftarUcapan" style="max-height: 250px; overflow-y: auto; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #eee; margin-top: 15px;">
+                <!-- Ucapan dari localStorage akan masuk otomatis ke sini -->
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section class="rsvp" id="rsvp" style="text-align: left;">
+            <h2>Konfirmasi Kehadiran</h2>
+
+            <form id="formRsvp">
+                <label for="rsvpNama">Nama Lengkap</label>
+                <input type="text" id="rsvpNama" placeholder="Masukkan nama kamu" required>
+
+                <label for="rsvpHadir">Kehadiran</label>
+                <select id="rsvpHadir" required>
+                    <option value="" disabled selected>Pilih salah satu</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak hadir">Tidak hadir</option>
+                </select>
+
+                <label for="rsvpJumlah">Jumlah Perwakilan</label>
+                <input type="number" id="rsvpJumlah" min="1" max="10" value="1" required>
+
+                <button type="submit">Kirim Konfirmasi</button>
+            </form>
+
+            <p id="pesanRsvp" class="rsvp-pesan" style="margin-top: 15px; font-weight: bold;"></p>
+        </section>
+
+      <!-- Tombol Share / Blast ke WhatsApp -->
+        <section style="text-align: center; padding: 30px 20px;">
+            <button onclick="shareKeWhatsApp()" style="background-color: #25d366; color: white; border: none; padding: 12px 25px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);">
+                📲 Bagikan Undangan via WhatsApp
+            </button>
+        </section>
+
+    </div> <!-- Penutup .container -->  
+
+    <script src="script.js"></script>
+</body>
+</html>
